@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE V3</title>
+</head>
+
+<body>
+    <!--CDN V3-->
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="container">
+        Contador : {{count}}
+    </div>
+    <script>
+        const Count = {
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    this.count++;
+                }, 500)
+            }
+        };
+        Vue.createApp(Count).mount('#container');
+    </script>
+</body>
+
+</html>

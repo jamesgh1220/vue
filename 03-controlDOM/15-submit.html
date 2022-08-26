@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Submit con VUE</h1>
+    <div id="app">
+        {{mensaje}}
+        <form v-on:submit="enviar" action="paginaqueprocesa.php" method="post">
+            <input v-model="nombre" placeholder="nombre">
+            <input v-model="pass" placeholder="Ingrese clave">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <!--
+        
+    -->
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                nombre: '',
+                pass: '',
+                mensaje: ''
+            },
+            methods: {
+                enviar: function(event) {
+                    if (this.nombre != '' && this.pass != '') {
+                        this.mensaje = 'ok'
+                    } else {
+                        this.mensaje = 'Agrege los campos'
+                        event.preventDefault()
+                    }
+                }
+            }
+        });
+    </script>
+
+</html>

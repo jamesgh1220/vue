@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--Directivas
+    v-text = mostrar texto de forma reactiva
+    v-once = mostrar texto no reactivo
+-->
+    <div id="app">
+        <!--Al modificar el input, modifica el resto de prop nombre
+        excepto el v-once-->
+        <input type="text" v-model="nombre">
+        <p v-text="nombre"></p>
+        <p>v-text: {{nombre}}</p>
+        <p v-once>{{nombre}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                nombre: 'James'
+            }
+        });
+    </script>
+</body>
+
+</html>

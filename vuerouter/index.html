@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+
+    <div id="app">
+        <h1>Vue Router</h1>
+        <!-- <a href=""></a> -->
+        <router-link to="/">Inicio</router-link>
+        <router-link to="/compras">Compras</router-link>
+        <router-link to="/ventas">Ventas</router-link>
+
+        <!--Mostrar template del componente-->
+        <router-view></router-view>
+    </div>
+    <script>
+        //1
+        const inicio = {
+            template: '<div>Seccion inicio</div>'
+        };
+        const compras = {
+            template: '<div>Seccion compras</div>'
+        };
+        const ventas = {
+            template: '<div>Seccion ventas</div>'
+        };
+        //2
+        const routes = [{
+            path: '/',
+            component: inicio
+        }, {
+            path: '/compras',
+            component: compras
+        }, {
+            path: '/ventas',
+            component: ventas
+        }];
+
+        const router = VueRouter.createRouter({
+            // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+            history: VueRouter.createWebHashHistory(),
+            routes, // short for `routes: routes`
+        })
+
+        // 5. Create and mount the root instance.
+        const app = Vue.createApp({})
+            // Make sure to _use_ the router instance to make the
+            // whole app router-aware.
+        app.use(router)
+
+        app.mount('#app')
+    </script>
+</body>
+
+</html>

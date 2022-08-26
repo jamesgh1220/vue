@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Bucles for y arreglos</h1>
+        <ul>
+            <li v-for="persona in personas">
+                {{persona.nombre}} {{persona.apellido}} {{persona.edad}}
+            </li>
+        </ul>
+
+        <!--v-for con indice utilizando una lista no ordenada-->
+        <ul>
+            <li v-for="(pais, index) in paises">
+                {{index}} - {{pais.nombre}}
+            </li>
+        </ul>
+
+        <!--v-for con objetos y uso de value-->
+        <ul>
+            <li v-for="value in colores">
+                {{value}}
+            </li>
+        </ul>
+
+        <!--v-for con objetos y uso de value y key-->
+        <ul>
+            <li v-for="(value, key) in colores">
+                {{key}} : {{value}}
+            </li>
+        </ul>
+
+        <!--v-for con rango de entero-->
+        <ul>
+            <li v-for="n in 10">
+                {{n}}
+            </li>
+        </ul>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <!--
+        Directiva 
+            v-for |     item    in   items    | 
+                        (alias)     (matriz datos)
+    -->
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                personas: [{
+                    nombre: 'James',
+                    apellido: 'Gallego',
+                    edad: 27
+                }, {
+                    nombre: 'James',
+                    apellido: 'Gallego',
+                    edad: 27
+                }],
+                paises: [{
+                    nombre: 'Colombia'
+                }, {
+                    nombre: 'Argentina'
+                }, {
+                    nombre: 'Brasil'
+                }],
+                colores: {
+                    nombre: 'Verde',
+                    descripcion: 'descripcion',
+                    origen: 'Nacional'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

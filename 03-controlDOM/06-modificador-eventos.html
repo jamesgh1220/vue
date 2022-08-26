@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{contador}}</p>
+        <!--Cada que pasa el mouse por encima del boton suma 1 a contador-->
+        <button v-on:mouseover=" contador += 1 ">sumar</button>
+        <!--Cada que haga click en el boton suma 1 a contador-->
+        <button v-on:click.once=" saludar() ">Saludar</button>
+        <button v-on:click.once=" saludar('james') ">Saludar</button>
+
+
+        <h1>{{texto}}</h1>
+        <input v-model="texto" v-on:click="ingresarTexto">
+        <input v-model="texto" v-on:change="ingresarTexto">
+        <input v-model="texto" v-on:keyup="ingresarTexto">
+    </div>
+    <!--.once = un evento se ejecute una unica vez
+        .stop = el evento se ejecuta unicamente en un componente-->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                texto: 'Hola mundo'
+            },
+            methods: {
+                saludar(nombre) {
+                    alert('hola mundo', nombre)
+                },
+                ingresarTexto: function() {
+                    alert('El texto es : ' + this.texto)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Eventos</h1>
+        <p>{{contador}}</p>
+        <!--Cada que pasa el mouse por encima del boton suma 1 a contador-->
+        <button v-on:mouseover=" contador += 1 ">sumar</button>
+        <!--Cada que haga click en el boton suma 1 a contador-->
+        <button v-on:click=" contador += 1 ">sumar click</button>
+    </div>
+    <!--Los eventos o events son la contraparte de los props
+    sirven para pasar informacion desde el componente hijo al padre-->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                contador: 0
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue-router@4"></script>
+
+    <div id="app">
+        <h1>Vue Router</h1>
+        <!-- <a href=""></a> -->
+        <!--Declarando las rutas con router-link-->
+        <router-link to="/">Inicio</router-link>
+        <router-link to="/compras">Compras</router-link>
+        <router-link to="/ventas">Ventas</router-link>
+
+        <!--Mostrar template del componente
+        Aqui es donde se va a cargar el contenido-->
+        <router-view></router-view>
+    </div>
+
+    <script>
+        //1 declaramos el contenido que va a tener cada vista
+        const inicio = {
+            template: '<div>Seccion inicio</div>'
+        };
+        const compras = {
+            template: '<div>Seccion compras</div>'
+        };
+        const ventas = {
+            template: '<div>Seccion ventas</div>'
+        };
+
+        //2 declarando las rutas, el path y enviandole como componente la vista
+        const routes = [{
+            path: '/',
+            component: inicio
+        }, {
+            path: '/compras',
+            component: compras
+        }, {
+            path: '/ventas',
+            component: ventas
+        }];
+
+        //3
+        const router = VueRouter.createRouter({
+            // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+            history: VueRouter.createWebHashHistory(),
+            routes, // Enviandole las routes declaradas en el paso anterior
+        })
+
+        // 5. Instanciando la aplicacion
+        const app = Vue.createApp({})
+            //utilizando el router para que toda la aplicacion sea compatible con el router 
+        app.use(router)
+            //Haciendo referencia al div con id app
+        app.mount('#app')
+    </script>
+</body>
+
+</html>

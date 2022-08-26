@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <div id="app">
+        <!--interpolacion-->
+        <h1>{{mensaje}}</h1>
+        <!--mensaje haciendo referencia al atributo mensaje de data en app-->
+
+        <!--v-text-->
+        <h1 v-text="mensaje">...</h1>
+
+        <!--mensaje haciendo referencia al atributo mensaje de data en app-->
+        <input type="text" placeholder="Digite texto" v-model="mensaje">
+        <hr>
+        <!-- : antes del href para poder hacer rfcia al url de data en app-->
+        <a :href="url" target="blank">Goplay</a>
+    </div>
+    <script>
+        // const data = document.querySelector('input');
+        // const dataModify = document.querySelector('h1');
+        // data.addEventListener('keyup', function() {
+        //     dataModify.innerHTML = data.value
+        // })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                mensaje: 'Hola mundo',
+                url: 'https://www.youtube.com/'
+            }
+        });
+    </script>
+</body>
+
+</html>

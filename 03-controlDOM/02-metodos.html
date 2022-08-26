@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <div id="app">
+        <h3>{{numero1}}</h3>
+        <h3>{{numero2}}</h3>
+        <input type="number" v-model="numero1">
+        <input type="number" v-model="numero2">
+        <hr>
+        <p>Suma = {{suma()}}</p>
+        <p>Resta = {{resta()}}</p>
+        <p>Multiplicacion = {{multiplicacion()}}</p>
+        <p>Division = {{division()}}</p>
+
+        <!---->
+        <button v-on:click="saludar('hola')">Enviamos hola</button>
+        <button @click="saludar2('chao')">Enviamos chao</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                numero1: 0,
+                numero2: 0
+            },
+            methods: {
+                suma: function() {
+                    return this.numero1 - (-this.numero2);
+                },
+                resta: function() {
+                    return this.numero1 - this.numero2;
+                },
+                multiplicacion: function() {
+                    return this.numero1 * this.numero2;
+                },
+                division: function() {
+                    return this.numero1 / this.numero2;
+                },
+                saludar: function(mensaje) {
+                    alert(mensaje)
+                },
+                saludar2: function(mensaje) {
+                    alert(mensaje)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

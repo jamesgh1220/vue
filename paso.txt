@@ -1,0 +1,72 @@
+Dentro del body:<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+una etiqueta html debe tener un id, el cual se hace referencia en una etiqueta script
+    <div id="app">**********
+        {{mensaje}}
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',*****
+            data: {
+                mensaje: "Hola mundo"
+            }
+        });
+    </script>
+Todo esto dentro del body.
+
+
+ECOSISTEMA DE VUEJS:
+VUE ROUTER = enrutamiento de apliaciones SPA permite crear y construir apps SPA
+    Caracteristicas: mapeo de rutas/ vistas anidadas
+                    conf enrutador modular basada en componentes
+                    paramentros de ruta, consulta, comodines
+                    enlace con clases css activas automaticas
+                    comportamiento de desplazamiento personalizable
+VUEX = gestion de estados + biblioteca para aplicaciones vuejs
+    Sirve como almacen centralizado para todos los componentes de una aplicacion con reglas que garantizan que el estado se puede modificar de una manera predecible
+VUE-CLI = proyecto de andamios, se centra todo el cuerpo de trabajo de vuejs
+VUE-LOADER = cargador de componente de archivo unico para paquete web
+VUE-SERVER-RENDERER = soporte de renderizado del lado del servidor
+VUE-CLASS-COMPONENT = decorador de ts para una api basada en clases
+
+
+DIRECTIVAS
+    <span>{{mensaje}}</span>   Interpolacion
+    <span v-text="msj"></span>
+    <span v-html="msj"></span>  Codigo HTML
+DIRECTIVAS CONDICIONALES
+    V-IF
+        <p v-if="estado">Mensaje</p>    estado = true/false
+        <p v-else>Mensaje</p>
+    V-SHOW
+        <p v-show="estado">Mensaje</p>    estado = true/false     
+DIRECTIVAS CONDICIONALES
+    FOR-LOOP
+        <p v-for="user">{{user.name}}</p>
+        user:[
+            {name: 'James'},
+            {name: 'John'}
+        ]
+_____________________
+<a :href="url" target="blank">Youtube</a>
+
+const app = new Vue({
+            el: '#app',
+            data: {
+                mensaje: 'Hola mundo',
+                url: 'https://www.youtube.com/'
+            }
+        });
+
+<input type="text" placeholder="Digite texto" v-model="text">
+text haciendo rfcia a la prop text de data en app
+const app = new Vue({
+            el: '#app',
+            data: {
+                data: [],
+                text: ''
+            }
+        });
+------------------------------------
+DATA BINDING (ENLACE DE DATOS)
+    es la sincronizacion automatica entre el modelo y vista, dentro de la vista se muestra los datos que contiene el modelo
+

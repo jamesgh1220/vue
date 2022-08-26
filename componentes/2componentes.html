@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <componente1></componente1>
+                <!-- <componente2></componente2> -->
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        /**LLamar al componente 2 desde el 1
+         * Se le asigna al componente 2 un texto2 y se le envia como props al componente 2**/
+        Vue.component('componente1', {
+                template: `
+                <div>
+                    <v-btn color="success">{{texto1}}</v-btn>
+                    <componente2 texto2="texto componente 2"></componente2>
+                </div>
+            `,
+                data: function() {
+                    return {
+                        texto1: 'Texto componente 1'
+                    }
+                }
+            })
+            //Caputando con props el texto2 def para el componente2 en el componente 1
+        Vue.component('componente2', {
+            template: `
+                <v-chip color="primary">{{texto2}}</v-chip>
+            `,
+            props: ['texto2']
+        })
+
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+        });
+    </script>
+</body>
+
+</html>
